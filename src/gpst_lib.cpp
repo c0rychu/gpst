@@ -1,4 +1,6 @@
 #include <iostream>
+#include <exception>
+#include <stdexcept>
 #include <time.h>
 #include "gpst_leaps.h"
 #include "gpst_lib.h"
@@ -27,7 +29,7 @@ time_t
 leapShift(time_t unixTime)
 {
     if (unixTime < gps0){     // gpstime < 0
-        throw std::invalid_argument( "gpstime < 0" );
+        throw std::invalid_argument( "\nError: gpstime < 0\n" );
     } else {
         int i;
         for (i=0; i<N_LEAPS; ++i) {

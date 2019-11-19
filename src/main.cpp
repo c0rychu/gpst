@@ -1,4 +1,6 @@
 #include <iostream>
+#include <exception>
+#include <stdexcept>
 #include <time.h>
 #include <getopt.h>
 #include "gpst_leaps.h"
@@ -45,14 +47,17 @@ main(int argc, char** argv)
         if (c == -1)
             break;
         
-        switch (c)
-        {       
+        switch (c) {       
             case 'n':
                 printf("%ld\n", unix2gps(time(NULL)));
                 break;
 
             case 'u':
-                printf("%ld\n", unix2gps((time_t)std::stol(optarg, NULL, 10)));
+                try {
+                    printf("%ld\n", unix2gps((time_t)std::stol(optarg, NULL, 10)));
+                } catch (std::invalid_argument& e) {
+                    std::cerr << e.what() << std::endl;
+                }
                 break;
                 
             case 'g':
