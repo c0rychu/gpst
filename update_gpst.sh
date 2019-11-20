@@ -8,10 +8,10 @@ unix0_in_ntp=2208988800  # 1970-1900 in ntp seconds
 expire=$(( $(awk '/^#@/ {print $2}' <(echo "$rawleaps")) - $unix0_in_ntp ))  # expired time in unix-timestemps
 case $(uname -s) in
     'Linux')
-        expStr=$(date -ud @$expire)
+        expStr=$(date -ud @$expire '+%Y-%m-%d')
         ;;
     'Darwin')
-        expStr=$(date -ur $expire)
+        expStr=$(date -ur $expire '+%Y-%m-%d')
         ;;
 esac
 

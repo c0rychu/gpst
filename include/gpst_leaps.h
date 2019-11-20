@@ -2,7 +2,7 @@
 #ifndef GPST_LEAPS 
 #define GPST_LEAPS 
 #define EXPIRE_ON 1593302400
-#define EXPIRE_ON_STR "Sun Jun 28 00:00:00 UTC 2020"
+#define EXPIRE_ON_STR "2020-06-28"
 #define N_LEAPS 18
 const time_t leaps[]={362793600,394329600,425865600,489024000,567993600,631152000,662688000,709948800,741484800,773020800,820454400,867715200,915148800,1136073600,1230768000,1341100800,1435708800,1483228800,};
 
@@ -17,10 +17,10 @@ const time_t leaps[]={362793600,394329600,425865600,489024000,567993600,63115200
 //  expire=$(( $(awk '/^#@/ {print $2}' <(echo "$rawleaps")) - $unix0_in_ntp ))  # expired time in unix-timestemps
 //  case $(uname -s) in
 //      'Linux')
-//          expStr=$(date -ud @$expire)
+//          expStr=$(date -ud @$expire '+%Y-%m-%d')
 //          ;;
 //      'Darwin')
-//          expStr=$(date -ur $expire)
+//          expStr=$(date -ur $expire '+%Y-%m-%d')
 //          ;;
 //  esac
 //  

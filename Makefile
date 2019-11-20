@@ -15,7 +15,7 @@ $(INC)/gpst_leaps.h:
 
 src/%.o: src/%.cpp $(INCS)
 	@echo Making $@
-	$(CXX) -std=c++11 -I$(INC) -c -O3 $< -o $@
+	$(CXX) -I$(INC) -c -O3 $< -o $@
 
 gpst: $(OBJS)
 	$(CXX) -o $@ $^

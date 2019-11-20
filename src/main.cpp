@@ -1,3 +1,5 @@
+#include <cstdlib>
+#include <cstdio>
 #include <iostream>
 #include <exception>
 #include <stdexcept>
@@ -47,32 +49,32 @@ main(int argc, char** argv)
         if (c == -1)
             break;
         
-        switch (c) {       
-            case 'n':
-                printf("%ld\n", unix2gps(time(NULL)));
-                break;
+        try {
+            switch (c) {       
+                case 'n':
+                    printf("%ld\n", unix2gps(time(NULL)));
+                    break;
 
-            case 'u':
-                try {
-                    printf("%ld\n", unix2gps((time_t)std::stol(optarg, NULL, 10)));
-                } catch (std::invalid_argument& e) {
-                    std::cerr << e.what() << std::endl;
-                }
-                break;
-                
-            case 'g':
-                printf("%ld\n", gps2unix((time_t)std::stol(optarg, NULL, 10)));
-                break;
-                
-            case 'h':
-                usage();
-                break;
-                
-            case '?':
-                break;
-                
-            default:
-                abort();
+                case 'u':
+                        printf("%ld\n", unix2gps((time_t)std::strtol(optarg, NULL, 10)));
+                    break;
+                    
+                case 'g':
+                    printf("%ld\n", gps2unix((time_t)std::strtol(optarg, NULL, 10)));
+                    break;
+                    
+                case 'h':
+                    usage();
+                    break;
+                    
+                case '?':
+                    break;
+                    
+                default:
+                    break;
+            }
+        } catch (std::invalid_argument& e) {
+            std::cerr << e.what() << std::endl;
         }
     }
      
