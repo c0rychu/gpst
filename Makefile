@@ -1,9 +1,9 @@
-CXX  = clang++
+CXX  = g++
 
 SRCS = main gpst_lib
 OBJS = $(addprefix src/, $(addsuffix .o, $(SRCS)))
 
-INC=include
+INC  = include
 INCS = $(wildcard include/*.h)
 
 .PHONY: all clean $(INC)/gpst_leaps.h
