@@ -13,10 +13,10 @@ unix2utc()
 {
     case $(uname -s) in
         'Linux')
-            echo $(date -ud @$1 '+%Y-%m-%d %H:%M:%S')
+            echo $(date -ud @$1 '+%Y-%m-%d %H:%M:%S') UTC
             ;;
         'Darwin')
-            echo $(date -ur $1 '+%Y-%m-%d %H:%M:%S')
+            echo $(date -ur $1 '+%Y-%m-%d %H:%M:%S') UTC
             ;;
     esac
 }
