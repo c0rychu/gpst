@@ -18,7 +18,7 @@ esac
 leaps=$(awk -v t0=$unix0_in_ntp '!/^#/ {print $1-t0}' <<<"$rawleaps" |sed '1,10d')
 nleaps=$(awk '{ ++count } END{ print count }' <<<"$leaps")
 
-( printf "/* Automatically converted from https://www.ietf.org/timezones/data/leap-seconds.list */\n"\
+( printf "/* Automatically converted from https://data.iana.org/time-zones/data/leap-seconds.list */\n"\
 ; printf "#ifndef GPST_LEAPS \n"\
 ; printf "#define GPST_LEAPS \n"\
 ; printf "#define EXPIRE_ON $expire\n"\
