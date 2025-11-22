@@ -16,7 +16,9 @@ Expiration date: XXXX-XX-XX
 After this date, it's better to recompile gpst to get new list of leapseconds.
 ```
 
-- **update_gpst.sh** : update the leap seconds of UTC from https://www.ietf.org/timezones/data/leap-seconds.list
+- **update_gpst.sh** : update the leap seconds of UTC from 
+    - ~~https://www.ietf.org/timezones/data/leap-seconds.list~~ (no longer serving) 
+    - https://data.iana.org/time-zones/data/leap-seconds.list
 
 - **util/gpsd.sh**
 
