@@ -2,7 +2,7 @@
 #leaps2cpp.sh
 #Generate leaps_gps.h
 
-rawleaps=$(curl https://www.ietf.org/timezones/data/leap-seconds.list)
+rawleaps=$(curl https://data.iana.org/time-zones/data/leap-seconds.list)
 unix0_in_ntp=2208988800  # 1970-1900 in ntp seconds
 
 expire=$(( $(awk '/^#@/ {print $2}' <(echo "$rawleaps")) - $unix0_in_ntp ))  # expired time in unix-timestemps

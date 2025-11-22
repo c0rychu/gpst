@@ -1,8 +1,8 @@
 /* Automatically converted from https://www.ietf.org/timezones/data/leap-seconds.list */
 #ifndef GPST_LEAPS 
 #define GPST_LEAPS 
-#define EXPIRE_ON 1593302400
-#define EXPIRE_ON_STR "2020-06-28"
+#define EXPIRE_ON 1766880000
+#define EXPIRE_ON_STR "2025-12-28"
 #define N_LEAPS 18
 const time_t leaps[]={362793600,394329600,425865600,489024000,567993600,631152000,662688000,709948800,741484800,773020800,820454400,867715200,915148800,1136073600,1230768000,1341100800,1435708800,1483228800,};
 
@@ -11,7 +11,7 @@ const time_t leaps[]={362793600,394329600,425865600,489024000,567993600,63115200
 //  #leaps2cpp.sh
 //  #Generate leaps_gps.h
 //  
-//  rawleaps=$(curl https://www.ietf.org/timezones/data/leap-seconds.list)
+//  rawleaps=$(curl https://data.iana.org/time-zones/data/leap-seconds.list)
 //  unix0_in_ntp=2208988800  # 1970-1900 in ntp seconds
 //  
 //  expire=$(( $(awk '/^#@/ {print $2}' <(echo "$rawleaps")) - $unix0_in_ntp ))  # expired time in unix-timestemps
